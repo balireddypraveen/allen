@@ -1,0 +1,44 @@
+HOST_TYPE: "local"
+
+host:
+  ip: "0.0.0.0"
+  port: "8087"
+  type: "local"
+
+database:
+  postgres:
+    max_idle_connections: 2
+    max_open_connections: 10
+    max_connection_lifetime: 1       # maximum amount of time a connection may be reused (in hour)
+    source:
+      host: "localhost"
+      port: 5432
+      user: "postgres"
+      password: "postgres"
+      db_name: "allen_local"
+
+redis_cluster:
+  host_cluster_url: "127.0.0.1:6379"
+  request_timeout_ms: 10000
+  connection_pool_size: 20
+  read_timeout_ms: 10
+
+logging:
+  format: "json"
+  level: "debug"
+cors:
+  origins: [ "http://localhost:8000","http://localhost:9000"]
+
+server:
+  method_allows: [ "GET", "POST", "PUT", "DELETE" ]
+  header_allows: [ "Origin", "Content-Length", "Content-Type", "X-User-Platform", "X-User-Agent", "X-App-Version", "X-AUTH-TOKEN", "X-Request-ID" ]
+  exposed_headers: [ "Origin", "Content-Length", "Content-Type" ]
+  idle_timeout: 5    # in minutes
+  read_write_timeout: 150
+
+new_relic:
+  enabled: false
+  license: $NEW_RELIC_LICENSE_KEY
+  app_name: "allen"
+
+db_config_timeout: 1
