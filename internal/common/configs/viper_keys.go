@@ -25,12 +25,10 @@ const (
 	VKEYS_NEWRELIC_ENABLED  = "new_relic.enabled"
 	VKEYS_NEWRELIC_APP_NAME = "new_relic.app_name"
 
-	VKEYS_REDIS_CLUSTERS_HOST_URL             = "redis_cluster.host_cluster_url"
+	VKEYS_REDIS_CLUSTERS_HOST_URL = "redis_cluster.host_cluster_url"
 
 	VKEYS_LOGGING_FORMAT = "logging.format"
 	VKEYS_LOGGING_LEVEL  = "logging.level"
-
-
 )
 
 var (

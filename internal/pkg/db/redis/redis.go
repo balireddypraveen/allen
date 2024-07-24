@@ -19,7 +19,6 @@ type Redis struct {
 	ctx   customContext.ReqCtx
 }
 
-
 func InitRedis() {
 	ctx := context.TODO()
 
@@ -39,7 +38,7 @@ func InitRedis() {
 	log.Info("redis initialized successfully")
 }
 
-// GetNew Create new function
+// GetNew CreateOrder new function
 func (r *Redis) GetNew(rCtx customContext.ReqCtx, key string) (string, error) {
 	// defer setupNewRelicSegment(&ctx, "get", key)()
 	log := rCtx.Log

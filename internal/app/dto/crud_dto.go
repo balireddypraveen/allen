@@ -8,7 +8,8 @@ type GetOrdersRequest struct {
 }
 
 type CreateOrderRequest struct {
-	UserId int64 `json:"user_id" binding:"required"`
+	UserId int       `json:"user_id" binding:"required"`
+	DealId uuid.UUID `json:"deal_id" binding:"required"`
 }
 
 type CancelOrderRequest struct {

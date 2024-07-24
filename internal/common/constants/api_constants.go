@@ -3,11 +3,11 @@ package constants
 const (
 	ApiPath    = "/allen-digital/api/"
 	V1         = "v1"
-	OnCallV1   = "oncall/v1"
-	Allen    = "/allen"
+	Deals      = "/deals"
 	TestHealth = "/health"
 
-	CreateOrder = Allen + "/orders"
-	GetOrders   = Allen + "/orders/query"
-	CancelOrder = Allen + "/orders/:orderId"
+	CreateDeal  = Deals
+	CloseDeal   = Deals + "/:dealId"
+	UpdateDeal  = Deals
+	CreateOrder = "/orders"
 )

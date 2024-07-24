@@ -9,7 +9,8 @@ import (
 )
 
 type Container struct {
-	apiController controller.ICrudController
+	apiController   controller.IDealController
+	orderController controller.IOrderController
 }
 
 func NewContainer() Container {
@@ -19,15 +20,19 @@ func NewContainer() Container {
 	baseRepo.SetDb(postgres.GetDBWithoutContext())
 
 	//Repository
-	crudRepo := repo.NewCrudRepo(baseRepo)
+	dealRepo := repo.NewDealRepo(baseRepo)
+	orderRepo := repo.NewOrderRepo(baseRepo)
 
 	//Service
-	crudService := service.NewCrudService(crudRepo)
+	dealService := service.NewDealService(dealRepo)
+	orderService := service.NewOrderService(orderRepo, dealRepo)
 
 	//Controller
-	apiController := controller.NewCrudController(crudService)
+	apiController := controller.NewDealController(dealService)
+	orderController := controller.NewOrderController(orderService)
 
 	return Container{
-		apiController: apiController,
+		apiController:   apiController,
+		orderController: orderController,
 	}
 }

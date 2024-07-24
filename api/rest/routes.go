@@ -30,5 +30,11 @@ func externalRoutes(routerGroup *gin.RouterGroup, container *Container) {
 }
 
 func apiRoutes(routerGroup *gin.RouterGroup, container *Container) {
-	routerGroup.POST(constants.CreateOrder, container.apiController.Create)
+	// Deal crud operations
+	routerGroup.POST(constants.CreateDeal, container.apiController.CreateDeal)
+	routerGroup.PUT(constants.UpdateDeal, container.apiController.UpdateDeal)
+	routerGroup.DELETE(constants.CloseDeal, container.apiController.EndDeal)
+
+	// user order crud operations
+	routerGroup.POST(constants.CreateOrder, container.orderController.CreateOrder)
 }

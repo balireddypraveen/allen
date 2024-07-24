@@ -11,8 +11,6 @@ import (
 	"github.com/spf13/viper"
 )
 
-
-
 func init() {
 	log.Info("loading config...") // log is initialized after config setup
 	configs2.SetupConfig()
@@ -26,7 +24,6 @@ func init() {
 	log.Info("Setup complete")
 
 }
-
 
 func getAddr() string {
 	addr := constants.ConnectionAddress
@@ -42,7 +39,6 @@ func main() {
 	addr := getAddr()
 	server := rest.HttpBuildServer(addr)
 	log.Info(addr)
-
 
 	log.Infof("http server is at %v", server.Addr)
 	err := server.ListenAndServe()

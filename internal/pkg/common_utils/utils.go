@@ -3,6 +3,7 @@ package common_utils
 import (
 	"crypto/rand"
 	"math/big"
+	"time"
 )
 
 func GenerateRandomString(length int) (string, error) {
@@ -18,4 +19,11 @@ func GenerateRandomString(length int) (string, error) {
 	}
 
 	return result, nil
+}
+
+func GetStartAndEndTimeForDeal() (*time.Time, *time.Time, error) {
+	// todo: read time from config
+	startTime := time.Now()
+	endTime := time.Now().Local().Add(time.Minute * time.Duration(15))
+	return &startTime, &endTime, nil
 }
